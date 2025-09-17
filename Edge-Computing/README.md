@@ -1,4 +1,6 @@
 ﻿# Projeto IoT: "Passa a Bola"
+ 
+<img width="524" height="1036" alt="sensor-passa-bola" src="https://github.com/user-attachments/assets/d40c4485-0dd6-4e59-94ff-bba3ade8c753" />
 
 ## Equipe 
 
@@ -58,3 +60,4 @@ A arquitetura do projeto é dividida em três camadas principais:
 1.  Após o upload, o ESP32 iniciará a leitura dos sensores e exibirá os dados no display LCD.
 
 2.  As condições do campo (Bom ou Molhado) serão indicadas por ícones específicos: uma **bola de futebol** para boas condições ou um desenho de **chuva** para condições desfavoráveis.
+
