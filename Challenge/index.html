@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Liga das Campeãs • Entrar ou Criar conta</title>
+
+  <link rel="stylesheet" href="src/css/style.css">
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="src/js/config.js"></script>
+
+  <style>
+    .glass {
+      background: rgba(255, 255, 255, .72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, .45)
+    }
+
+    .tab {
+      transition: all .2s ease
+    }
+
+    .tab.active {
+      background: #7c3aed;
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(124, 58, 237, .35)
+    }
+
+    .input {
+      transition: box-shadow .15s ease
+    }
+
+    .input:focus {
+      box-shadow: 0 0 0 3px rgba(167, 139, 250, .35), 0 0 0 1px #e5e7eb
+    }
+
+    .err {
+      display: none
+    }
+
+    .err.show {
+      display: block
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-gradient-to-b from-brand-50 via-white to-brand-50 text-slate-800 antialiased">
+
+  <!-- BG decor -->
+  <div class="pointer-events-none fixed inset-0">
+    <div class="absolute -top-20 -right-16 h-72 w-72 rounded-full bg-brand-300/30 blur-3xl animate-float"></div>
+    <div class="absolute -bottom-24 -left-16 h-80 w-80 rounded-full bg-mint-500/20 blur-3xl animate-float"
+      style="animation-delay: -2s"></div>
+  </div>
+
+  <!-- Conteúdo -->
+  <main class="relative z-10 max-w-6xl mx-auto px-4 py-10 md:py-16">
+    <div class="grid gap-8 md:grid-cols-2 items-center">
+
+      <!-- Lado Esquerdo: Marca -->
+      <section class="hidden md:block">
+        <div class="inline-flex items-center gap-3">
+          <div class="h-12 w-12 rounded-2xl grid place-items-center text-white font-extrabold shadow"><img
+              src="src/assets/imgs/logo.png" alt=""></div>
+          <div>
+            <h1 class="text-3xl font-extrabold text-brand-800">Liga das Campeãs</h1>
+            <p class="text-slate-500 text-sm -mt-1">Futebol Feminino • Tudo em um só lugar</p>
+          </div>
+        </div>
+
+        <div class="mt-8 glass rounded-3xl p-6 shadow-card">
+          <h2 class="text-xl font-extrabold text-brand-700">Bem-vinda(o) 👋</h2>
+          <p class="text-slate-600 mt-2">Acompanhe jogos, notícias, tabelas e suas equipes favoritas com uma conta
+            gratuita.</p>
+
+          <ul class="mt-4 space-y-2 text-sm text-slate-700">
+            <li>✅ Personalize times favoritos</li>
+            <li>✅ Receba alertas de partidas</li>
+            <li>✅ Salve notícias e estatísticas</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Card de Auth -->
+      <section class="glass rounded-3xl p-6 md:p-8 shadow-card animate-pop">
+        <!-- Tabs -->
+        <div class="grid grid-cols-2 rounded-2xl border border-brand-100 overflow-hidden">
+          <button id="tabLogin" class="tab px-4 py-2 font-semibold bg-white text-brand-700">Entrar</button>
+          <button id="tabCadastro" class="tab px-4 py-2 font-medium text-slate-600 hover:bg-brand-50">Criar
+            conta</button>
+        </div>
+
+        <!-- Form Login -->
+        <form id="formLogin" class="mt-6 space-y-4" autocomplete="on" novalidate>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+            <input id="loginEmail" type="email" class="input w-full rounded-xl border border-slate-200 px-3 py-2"
+              placeholder="voce@email.com" required>
+            <p class="err text-xs text-rose-600 mt-1" id="loginEmailErr">Informe um email válido.</p>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">Senha</label>
+            <div class="relative">
+              <input id="loginPwd" type="password"
+                class="input w-full rounded-xl border border-slate-200 px-3 py-2 pr-10" placeholder="••••••••" required>
+              <button type="button" data-toggle="#loginPwd"
+                class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">👁️</button>
+            </div>
+            <p class="err text-xs text-rose-600 mt-1" id="loginPwdErr">Informe sua senha.</p>
+          </div>
+
+          <div class="flex items-center justify-between text-sm">
+            <label class="flex items-center gap-2">
+              <input id="remember" type="checkbox" class="rounded border-slate-300 text-brand-600 focus:ring-brand-500">
+              Lembrar de mim
+            </label>
+            <button type="button" id="btnReset" class="text-brand-700 font-semibold hover:underline">Esqueci a
+              senha</button>
+          </div>
+
+          <button
+            class="w-full rounded-2xl bg-gradient-to-r from-brand-600 to-brand-500 text-white px-5 py-2.5 font-semibold hover:from-brand-700 hover:to-brand-600 transition-all shadow hover:shadow-lg hover:-translate-y-0.5">
+            Entrar
+          </button>
+
+          <div class="flex items-center gap-3 my-2">
+            <div class="h-px flex-1 bg-slate-200"></div>
+          </div>
+
+        </form>
+
+        <!-- Form Cadastro -->
+        <form id="formCadastro" class="mt-6 space-y-4 hidden" autocomplete="on" novalidate>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="block text-sm font-medium text-slate-700 mb-1">Nome</label>
+              <input id="cadNome" type="text" class="input w-full rounded-xl border border-slate-200 px-3 py-2"
+                placeholder="Seu nome completo" required>
+              <p class="err text-xs text-rose-600 mt-1" id="cadNomeErr">Informe seu nome.</p>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-700 mb-1">Username</label>
+              <input id="cadUser" type="text" class="input w-full rounded-xl border border-slate-200 px-3 py-2"
+                placeholder="@usuario" required>
+              <p class="err text-xs text-rose-600 mt-1" id="cadUserErr">Informe um username.</p>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+            <input id="cadEmail" type="email" class="input w-full rounded-xl border border-slate-200 px-3 py-2"
+              placeholder="voce@email.com" required>
+            <p class="err text-xs text-rose-600 mt-1" id="cadEmailErr">Informe um email válido.</p>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="block text-sm font-medium text-slate-700 mb-1">Senha</label>
+              <div class="relative">
+                <input id="cadPwd" type="password"
+                  class="input w-full rounded-xl border border-slate-200 px-3 py-2 pr-10"
+                  placeholder="mínimo 6 caracteres" required>
+                <button type="button" data-toggle="#cadPwd"
+                  class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">👁️</button>
+              </div>
+              <p class="err text-xs text-rose-600 mt-1" id="cadPwdErr">A senha precisa ter pelo menos 6 caracteres.</p>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-700 mb-1">Confirmar senha</label>
+              <input id="cadPwd2" type="password" class="input w-full rounded-xl border border-slate-200 px-3 py-2"
+                required>
+              <p class="err text-xs text-rose-600 mt-1" id="cadPwd2Err">As senhas não coincidem.</p>
+            </div>
+          </div>
+          <label class="flex items-start gap-2 text-sm">
+            <input id="cadTermos" type="checkbox"
+              class="mt-0.5 rounded border-slate-300 text-brand-600 focus:ring-brand-500">
+            <span>Li e aceito os <a href="#" class="text-brand-700 font-semibold hover:underline">Termos de Uso</a> e a
+              <a href="#" class="text-brand-700 font-semibold hover:underline">Política de Privacidade</a>.</span>
+          </label>
+          <p class="err text-xs text-rose-600" id="cadTermosErr">Você precisa aceitar os termos.</p>
+
+          <button
+            class="w-full rounded-2xl bg-gradient-to-r from-brand-600 to-brand-500 text-white px-5 py-2.5 font-semibold hover:from-brand-700 hover:to-brand-600 transition-all shadow hover:shadow-lg hover:-translate-y-0.5">
+            Criar conta
+          </button>
+
+          <p class="text-xs text-slate-500 text-center">Já tem conta? <button type="button" id="toLogin"
+              class="text-brand-700 font-semibold hover:underline">Entrar</button></p>
+        </form>
+
+
+      </section>
+    </div>
+  </main>
+
+  <!-- Modal 'reset senha' (mock) -->
+  <div id="modalReset" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/50 p-4">
+    <div class="glass w-full max-w-md rounded-2xl p-5 animate-pop">
+      <h3 class="font-bold text-brand-700">Recuperar senha</h3>
+      <p class="text-sm text-slate-600 mt-1">Informe seu email e enviaremos instruções (simulado).</p>
+      <input id="resetEmail" type="email" class="mt-3 input w-full rounded-xl border border-slate-200 px-3 py-2"
+        placeholder="voce@email.com">
+      <div class="mt-4 flex justify-end gap-2">
+        <button id="resetCancel"
+          class="rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-sm font-semibold hover:bg-slate-50 transition">Cancelar</button>
+        <button id="resetSend"
+          class="rounded-xl bg-brand-600 text-white px-3 py-1.5 text-sm font-semibold hover:bg-brand-700 transition">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast"
+    class="fixed bottom-4 left-1/2 -translate-x-1/2 hidden rounded-2xl bg-slate-900 text-white px-4 py-2 text-sm shadow-lg">
+    Ok!</div>
+
+  <!-- VLibras: botão e container -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+  <!-- Script do VLibras -->
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+  <!-- Script -->
+  <script src="src/js/auth.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Liga das Campeãs • Equipes</title>
+
+  <!-- CSS extra -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/config.js"></script>
+
+</head>
+
+<body class="min-h-screen bg-gradient-to-b from-brand-50 via-white to-brand-50 text-slate-800 antialiased">
+
+  <!-- Topbar mobile -->
+  <header class="md:hidden sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+
+      <div class="flex items-center gap-2">
+        <div class="h-8 w-8 rounded-xl flex items-center justify-center text-white font-extrabold"><img
+            src="../assets/imgs/logo.png" alt=""></div>
+        <strong class="text-slate-900">Liga das Campeãs</strong>
+      </div>
+      <div class="w-8"></div>
+      <button id="btnMenu" class="p-2 hover:bg-slate-50" aria-label="Abrir menu">
+        ☰
+      </button>
+    </div>
+  </header>
+
+  <div class="max-w-[1400px] mx-auto md:grid md:grid-cols-[260px,1fr] gap-6 px-4 md:px-6 py-5">
+
+    <!-- Sidebar -->
+    <aside id="sidebar"
+      class="md:sticky md:top-4 md:self-start bg-white/80 backdrop-blur border border-slate-200 rounded-2xl p-4 md:p-5 shadow-sm hidden md:block">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="h-10 w-10 rounded-xl flex items-center justify-center text-white font-extrabold"><img
+            src="../assets/imgs/logo.png" alt=""></div>
+
+        <div>
+          <p class="text-slate-900 font-bold leading-tight">Liga das Campeãs</p>
+          <p class="text-xs text-slate-500 -mt-0.5">Futebol Feminino</p>
+        </div>
+      </div>
+
+      <nav class="space-y-1.5">
+        <a href="inicio.html" data-route="inicio"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-home-5-line text-lg shrink-0" aria-hidden="true"></i> <span>Início</span>
+        </a>
+
+        <a href="jogos.html" data-route="jogos"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-gamepad-line text-lg shrink-0" aria-hidden="true"></i> <span>Jogos</span>
+        </a>
+
+        <a href="noticias.html" data-route="noticias"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-newspaper-line text-lg shrink-0" aria-hidden="true"></i> <span>Notícias</span>
+          <span class="ml-auto text-[10px] px-2 py-0.5 rounded-full bg-brand-100 text-brand-700">3</span>
+        </a>
+
+        <a href="equipes.html" data-route="equipes"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-team-line text-lg shrink-0" aria-hidden="true"></i> <span>Equipes</span>
+        </a>
+
+        <a href="classificacao.html" data-route="classificacao"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-trophy-line text-lg shrink-0" aria-hidden="true"></i> <span>Classificação</span>
+        </a>
+
+        <a href="perfil.html" data-route="perfil"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-user-3-line text-lg shrink-0" aria-hidden="true"></i> <span>Meu Perfil</span>
+        </a>
+
+        <a href="peneiras.html" data-route="peneiras"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-clipboard-line text-lg shrink-0" aria-hidden="true"></i> <span>Peneiras</span>
+        </a>
+
+        <button id="btnLogout"
+          class="mt-6 w-full rounded-2xl bg-white border border-rose-300 text-rose-600 font-semibold px-4 py-2 hover:bg-rose-50 transition inline-flex items-center justify-center gap-2">
+          <i class="ri-logout-box-r-line text-lg" aria-hidden="true"></i> <span> Sair</span>
+        </button>
+      </nav>
+
+      <div class="mt-6 glass rounded-2xl p-4">
+        <p class="text-xs font-semibold text-brand-700 mb-1">🎯 Jogo Destaque</p>
+        <p class="text-sm font-medium">Brasil x Argentina</p>
+        <p class="text-xs text-slate-500">Hoje às 16:00</p>
+      </div>
+    </aside>
+
+    <!-- Conteúdo -->
+    <main class="space-y-6">
+
+      <!-- Título + ação -->
+      <div class="flex flex-wrap items-center gap-3 justify-between">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">👥</span>
+          <div>
+            <h1 class="text-2xl md:text-3xl font-extrabold text-brand-800">Equipes</h1>
+            <p class="text-sm text-slate-500">Conheça os times e seleções do futebol feminino</p>
+          </div>
+        </div>
+
+        <button
+          class="inline-flex items-center gap-2 rounded-2xl border border-slate-200 px-4 py-2 text-sm font-semibold hover:bg-slate-50 transition-all hover:-translate-y-0.5">
+          ⭐ Times Favoritos
+        </button>
+      </div>
+
+      <!-- Indicadores -->
+      <section class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="glass rounded-2xl p-5 text-center shadow-sm hover:shadow-card transition-all">
+          <p class="text-xs uppercase tracking-wide text-slate-500">Times Cadastrados</p>
+          <div class="text-3xl font-extrabold text-brand-700 mt-1 counter" data-value="156">0</div>
+        </div>
+        <div class="glass rounded-2xl p-5 text-center shadow-sm hover:shadow-card transition-all">
+          <p class="text-xs uppercase tracking-wide text-slate-500">Jogadoras Ativas</p>
+          <div class="text-3xl font-extrabold text-emerald-600 mt-1 counter" data-value="2800">0</div>
+        </div>
+        <div class="glass rounded-2xl p-5 text-center shadow-sm hover:shadow-card transition-all">
+          <p class="text-xs uppercase tracking-wide text-slate-500">Seleções</p>
+          <div class="text-3xl font-extrabold text-brand-700 mt-1 counter" data-value="32">0</div>
+        </div>
+        <div class="glass rounded-2xl p-5 text-center shadow-sm hover:shadow-card transition-all">
+          <p class="text-xs uppercase tracking-wide text-slate-500">Jogos neste Ano</p>
+          <div class="text-3xl font-extrabold text-emerald-600 mt-1 counter" data-value="847">0</div>
+        </div>
+      </section>
+
+      <!-- Tabs -->
+      <div id="tabs" class="grid grid-cols-2 text-center rounded-2xl border border-brand-100 overflow-hidden">
+        <button data-tab="selecoes"
+          class="tab-btn px-4 py-2 text-sm font-semibold bg-white text-brand-700">Seleções</button>
+        <button data-tab="clubes"
+          class="tab-btn px-4 py-2 text-sm font-medium text-slate-600 hover:bg-brand-50">Clubes</button>
+      </div>
+
+      <!-- Cards Seleções -->
+      <section id="grid-selecoes" class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Brasil -->
+        <article class="team-card rounded-3xl border border-brand-100 bg-white/80 backdrop-blur p-5">
+          <div class="flex items-start gap-4">
+            <div class="h-12 w-12 grid place-items-center text-white font-bold"
+              style="background:linear-gradient(135deg,#7c3aed,#22c55e)">BR</div>
+            <div class="flex-1">
+              <h3 class="font-extrabold text-brand-700 leading-tight">Brasil</h3>
+              <p class="text-xs text-slate-500">Ranking FIFA: #8</p>
+              <p class="text-sm text-slate-600 mt-2">Atual campeã da Copa América e uma das principais seleções do
+                mundo.</p>
+
+              <div class="mt-3 text-sm text-slate-700 space-y-1.5">
+                <p>💼 <span class="font-medium">Técnico:</span> Pia Sundhage <span class="text-slate-500">• 23
+                    jogadoras</span></p>
+                <div>
+                  🏆 <span class="font-medium">Principais Títulos:</span>
+                  <ul class="mt-1 ml-5 list-disc text-slate-600">
+                    <li>Copa América 2022</li>
+                    <li>Pan-americanos 2023</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Argentina -->
+        <article class="team-card rounded-3xl border border-brand-100 bg-white/80 backdrop-blur p-5">
+          <div class="flex items-start gap-4">
+            <div class="h-12 w-12 grid place-items-center text-white font-bold"
+              style="background:linear-gradient(135deg,#7c3aed,#8b5cf6)">AR</div>
+            <div class="flex-1">
+              <h3 class="font-extrabold text-brand-700 leading-tight">Argentina</h3>
+              <p class="text-xs text-slate-500">Ranking FIFA: #28</p>
+              <p class="text-sm text-slate-600 mt-2">Rival histórica do Brasil e em crescimento constante.</p>
+
+              <div class="mt-3 text-sm text-slate-700 space-y-1.5">
+                <p>💼 <span class="font-medium">Técnico:</span> Germán Portanova <span class="text-slate-500">• 23
+                    jogadoras</span></p>
+                <div>
+                  🏆 <span class="font-medium">Principais Títulos:</span>
+                  <ul class="mt-1 ml-5 list-disc text-slate-600">
+                    <li>Copa América 2006</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Estados Unidos -->
+        <article class="team-card rounded-3xl border border-brand-100 bg-white/80 backdrop-blur p-5">
+          <div class="flex items-start gap-4">
+            <div class="h-12 w-12 grid place-items-center text-white font-bold"
+              style="background:linear-gradient(135deg,#10b981,#34d399)">US</div>
+            <div class="flex-1">
+              <h3 class="font-extrabold text-brand-700 leading-tight">Estados Unidos</h3>
+              <p class="text-xs text-slate-500">Ranking FIFA: #1</p>
+              <p class="text-sm text-slate-600 mt-2">Atual campeã mundial e líder do ranking FIFA.</p>
+
+              <div class="mt-3 text-sm text-slate-700 space-y-1.5">
+                <p>💼 <span class="font-medium">Técnico:</span> Vlatko Andonovski <span class="text-slate-500">• 23
+                    jogadoras</span></p>
+                <div>
+                  🏆 <span class="font-medium">Principais Títulos:</span>
+                  <ul class="mt-1 ml-5 list-disc text-slate-600">
+                    <li>Copa do Mundo 2019</li>
+                    <li>Olimpíadas 2021</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Grid de Clubes (placeholder / oculto inicialmente) -->
+      <section id="grid-clubes" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 hidden">
+        <article class="team-card rounded-3xl border border-brand-100 bg-white/80 backdrop-blur p-5">
+          <div class="flex items-start gap-4">
+            <div class="h-12 w-12 rounded-2xl grid place-items-center text-white font-bold shadow"
+              style="background:linear-gradient(135deg,#7c3aed,#8b5cf6)">COR</div>
+            <div class="flex-1">
+              <h3 class="font-extrabold text-brand-700 leading-tight">Corinthians</h3>
+              <p class="text-xs text-slate-500">Brasileirão Feminino</p>
+              <p class="text-sm text-slate-600 mt-2">Multicampeão nacional e referência no futebol feminino.</p>
+              <div class="mt-3 text-sm text-slate-700 space-y-1.5">
+                <p>🏟️ Neo Química Arena</p>
+                <p>🏆 Libertadores 2023 • Brasileirão 2023</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="team-card rounded-3xl border border-brand-100 bg-white/80 backdrop-blur p-5">
+          <div class="flex items-start gap-4">
+            <div class="h-12 w-12 rounded-2xl grid place-items-center text-white font-bold shadow"
+              style="background:linear-gradient(135deg,#10b981,#34d399)">PAL</div>
+            <div class="flex-1">
+              <h3 class="font-extrabold text-brand-700 leading-tight">Palmeiras</h3>
+              <p class="text-xs text-slate-500">Brasileirão Feminino</p>
+              <p class="text-sm text-slate-600 mt-2">Elenco forte e participação constante em finais.</p>
+              <div class="mt-3 text-sm text-slate-700 space-y-1.5">
+                <p>🏟️ Allianz Parque</p>
+                <p>🏆 Libertadores 2022</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="team-card rounded-3xl border border-brand-100 bg-white/80 backdrop-blur p-5">
+          <div class="flex items-start gap-4">
+            <div class="h-12 w-12 rounded-2xl grid place-items-center text-white font-bold shadow"
+              style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">SAN</div>
+            <div class="flex-1">
+              <h3 class="font-extrabold text-brand-700 leading-tight">Santos</h3>
+              <p class="text-xs text-slate-500">Brasileirão Feminino</p>
+              <p class="text-sm text-slate-600 mt-2">Tradição e revelação de talentos.</p>
+              <div class="mt-3 text-sm text-slate-700 space-y-1.5">
+                <p>🏟️ Vila Belmiro</p>
+                <p>🏆 Bicampeão da Libertadores</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Time em destaque -->
+      <section class="rounded-3xl p-6 text-brand-900 shadow-card hover:shadow-xl transition-all hover:-translate-y-0.5"
+        style="background:linear-gradient(120deg,#f3e8ff 0%,#ede9fe 40%,#e9fdf5 100%)">
+        <div class="flex items-center gap-2 mb-3">
+          <span>📣⭐</span>
+          <h3 class="text-lg font-extrabold text-brand-700">Time em Destaque</h3>
+        </div>
+        <div class="grid gap-4 md:grid-cols-[1fr,auto] items-center">
+          <div class="flex items-start gap-4">
+            <div class="h-12 w-12 rounded-2xl grid place-items-center text-white font-bold shadow"
+              style="background:linear-gradient(135deg,#7c3aed,#22c55e)">BR</div>
+            <div>
+              <p class="font-semibold">Seleção Brasileira</p>
+              <p class="text-sm text-slate-600">8ª colocada no ranking mundial</p>
+              <p class="text-sm text-slate-600">Próximo: Brasil vs Argentina</p>
+            </div>
+          </div>
+          <button
+            class="justify-self-end rounded-2xl bg-gradient-to-r from-brand-600 to-brand-500 text-white px-5 py-2 font-semibold hover:from-brand-700 hover:to-brand-600 transition-all shadow hover:shadow-lg hover:-translate-y-0.5">
+            Seguir Time
+          </button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Modal de Logout -->
+  <div id="logoutModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+    <!-- Overlay -->
+    <div data-overlay class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm opacity-0 transition-opacity"></div>
+
+    <!-- Painel -->
+    <div id="logoutPanel" role="dialog" aria-modal="true" aria-labelledby="logoutTitle" aria-describedby="logoutDesc"
+      class="relative w-full max-w-md origin-center rounded-2xl bg-white p-6 shadow-xl ring-1 ring-slate-200 
+              opacity-0 translate-y-3 sm:translate-y-0 sm:scale-95 transition duration-150">
+      <div class="flex items-start gap-4">
+        <div class="shrink-0 rounded-full bg-brand-50 p-2 ring-8 ring-brand-50">
+          <!-- ícone -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-600" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+              d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6A2.25 2.25 0 005.25 5.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l3-3m0 0l3 3m-3-3v12" />
+          </svg>
+        </div>
+        <div class="flex-1">
+          <h2 id="logoutTitle" class="text-lg font-semibold text-slate-900">Sair da conta?</h2>
+          <p id="logoutDesc" class="mt-1 text-sm text-slate-600">
+            Você será desconectado e precisará entrar novamente.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-6 flex justify-end gap-3">
+        <button id="logoutCancel" class="px-4 py-2 rounded-xl ring-1 ring-slate-300 text-slate-700 hover:bg-slate-50">
+          Cancelar
+        </button>
+        <button id="logoutConfirm" class="px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700 focus:outline-none 
+                     focus:ring-2 focus:ring-brand-600 focus:ring-offset-2">
+          Sair
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- VLibras: botão e container -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+  <!-- Script do VLibras -->
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+  <!-- JS: menu mobile, nav ativo, tabs e contadores -->
+  <script src="../js/equipes.js"></script>
+  <script src="../js/selecoes.js"></script>
+  <script src="../js/menu-mobile.js"></script>
+  <script src="../js/logout.js"></script>
+  <script src="../js/token.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Liga das Campeãs • Notícias</title>
+
+  <!-- CSS extra -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/config.js"></script>
+
+</head>
+
+<body class="min-h-screen bg-gradient-to-b from-brand-50 via-white to-brand-50 text-slate-800 antialiased">
+
+  <!-- Topbar mobile -->
+  <header class="md:hidden sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+
+      <div class="flex items-center gap-2">
+        <div class="h-8 w-8 rounded-xl flex items-center justify-center text-white font-extrabold"><img
+            src="../assets/imgs/logo.png" alt=""></div>
+        <strong class="text-slate-900">Liga das Campeãs</strong>
+      </div>
+      <div class="w-8"></div>
+      <button id="btnMenu" class="p-2 hover:bg-slate-50" aria-label="Abrir menu">
+        ☰
+      </button>
+    </div>
+  </header>
+
+  <div class="max-w-[1400px] mx-auto md:grid md:grid-cols-[260px,1fr] gap-6 px-4 md:px-6 py-5">
+
+    <!-- Sidebar -->
+    <aside id="sidebar"
+      class="md:sticky md:top-4 md:self-start bg-white/80 backdrop-blur border border-slate-200 rounded-2xl p-4 md:p-5 shadow-sm hidden md:block">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="h-10 w-10 rounded-xl flex items-center justify-center text-white font-extrabold"><img
+            src="../assets/imgs/logo.png" alt=""></div>
+
+        <div>
+          <p class="text-slate-900 font-bold leading-tight">Liga das Campeãs</p>
+          <p class="text-xs text-slate-500 -mt-0.5">Futebol Feminino</p>
+        </div>
+      </div>
+
+      <nav class="space-y-1.5">
+        <a href="inicio.html" data-route="inicio"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-home-5-line text-lg shrink-0" aria-hidden="true"></i> <span>Início</span>
+        </a>
+
+        <a href="jogos.html" data-route="jogos"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-gamepad-line text-lg shrink-0" aria-hidden="true"></i> <span>Jogos</span>
+        </a>
+
+        <a href="noticias.html" data-route="noticias"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-newspaper-line text-lg shrink-0" aria-hidden="true"></i> <span>Notícias</span>
+          <span class="ml-auto text-[10px] px-2 py-0.5 rounded-full bg-brand-100 text-brand-700">3</span>
+        </a>
+
+        <a href="equipes.html" data-route="equipes"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-team-line text-lg shrink-0" aria-hidden="true"></i> <span>Equipes</span>
+        </a>
+
+        <a href="classificacao.html" data-route="classificacao"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-trophy-line text-lg shrink-0" aria-hidden="true"></i> <span>Classificação</span>
+        </a>
+
+        <a href="perfil.html" data-route="perfil"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-user-3-line text-lg shrink-0" aria-hidden="true"></i> <span>Meu Perfil</span>
+        </a>
+
+        <a href="peneiras.html" data-route="peneiras"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-clipboard-line text-lg shrink-0" aria-hidden="true"></i> <span>Peneiras</span>
+        </a>
+
+        <button id="btnLogout"
+          class="mt-6 w-full rounded-2xl bg-white border border-rose-300 text-rose-600 font-semibold px-4 py-2 hover:bg-rose-50 transition inline-flex items-center justify-center gap-2">
+          <i class="ri-logout-box-r-line text-lg" aria-hidden="true"></i> <span> Sair</span>
+        </button>
+      </nav>
+
+      <div class="mt-6 glass rounded-2xl p-4">
+        <p class="text-xs font-semibold text-brand-700 mb-1">🎯 Jogo Destaque</p>
+        <p class="text-sm font-medium">Brasil x Argentina</p>
+        <p class="text-xs text-slate-500">Hoje às 16:00</p>
+      </div>
+    </aside>
+
+    <!-- Conteúdo -->
+    <main class="space-y-6">
+
+      <!-- Título -->
+      <div class="flex items-start gap-3">
+        <span class="text-2xl">🗞️</span>
+        <div>
+          <h1 class="text-2xl md:text-3xl font-extrabold text-brand-800">Notícias</h1>
+          <p class="text-sm text-slate-500">Fique por dentro do que rola no futebol feminino</p>
+        </div>
+      </div>
+
+      <!-- Manchete destaque -->
+      <section
+        class="rounded-3xl border border-brand-100 bg-white/80 backdrop-blur p-5 md:p-6 shadow-sm hover:shadow-card transition-all">
+        <div class="grid gap-6 md:grid-cols-[1.2fr,.9fr] items-center">
+          <div>
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-sky-100 text-sky-700">Internacional</span>
+              <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-700">Destaque</span>
+            </div>
+
+            <h2 class="text-xl md:text-2xl font-extrabold text-brand-700 leading-snug">
+              Marta faz história e se torna a maior artilheira da Seleção
+            </h2>
+            <p class="mt-2 text-sm text-slate-600 max-w-prose">
+              Com 23 gols marcados, a rainha do futebol supera recorde histórico e emociona torcedores em todo o país.
+            </p>
+
+            <div class="mt-3 flex items-center gap-4 text-xs text-slate-500">
+              <span>⏱️ 2h atrás</span>
+              <span>👁️ 12.4k</span>
+              <span>❤️ 856</span>
+            </div>
+
+            <div class="mt-4 flex items-center gap-3">
+              <button
+                class="rounded-2xl bg-gradient-to-r from-brand-600 to-brand-500 text-white px-4 py-2 text-sm font-semibold hover:from-brand-700 hover:to-brand-600 transition-all shadow hover:shadow-lg hover:-translate-y-0.5">
+                Ler Matéria Completa
+              </button>
+              <button
+                class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold hover:bg-slate-50 transition-all">🔗</button>
+            </div>
+          </div>
+
+          <!-- imagem/placeholder -->
+          <div class="relative">
+            <div class="img-ph w-full h-48 md:h-56 rounded-2xl bg-center bg-cover bg-no-repeat animate-float
+                    bg-[url('../assets/imgs/828EBEF2-C0B5-47C9-947F-5AE0029D1EF2.png')]">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trending -->
+      <section class="rounded-3xl p-5 shadow-sm border border-brand-100"
+        style="background:linear-gradient(120deg,#f3e8ff 0%,#f8f7ff 40%,#e9fdf5 100%)">
+        <div class="flex items-center gap-2 mb-3">
+          <span>📈🔥</span>
+          <h3 class="font-extrabold text-brand-700">Trending</h3>
+        </div>
+
+        <div id="chips" class="flex flex-wrap gap-2">
+          <button class="chip px-3 py-1.5 rounded-full text-sm bg-emerald-100 text-emerald-700"
+            data-tag="marta">#Marta</button>
+          <button class="chip px-3 py-1.5 rounded-full text-sm bg-emerald-100 text-emerald-700" data-tag="copa">#Copa do
+            Mundo</button>
+          <button class="chip px-3 py-1.5 rounded-full text-sm bg-emerald-100 text-emerald-700"
+            data-tag="brasileirao">#Brasileirão Feminino</button>
+          <button class="chip px-3 py-1.5 rounded-full text-sm bg-emerald-100 text-emerald-700"
+            data-tag="corinthians">#Corinthians</button>
+          <button class="chip px-3 py-1.5 rounded-full text-sm bg-emerald-100 text-emerald-700"
+            data-tag="debinha">#Debinha</button>
+          <button class="chip px-3 py-1.5 rounded-full text-sm bg-emerald-100 text-emerald-700"
+            data-tag="selecao">#Seleção Brasileira</button>
+          <button id="clearFilter"
+            class="px-3 py-1.5 rounded-full text-sm border border-emerald-300 bg-white hover:bg-emerald-50 transition">Limpar
+            filtro</button>
+        </div>
+      </section>
+
+      <!-- Lista de cards -->
+      <section class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Card -->
+        <article
+          class="news-card rounded-3xl overflow-hidden border border-purple-100 bg-white/80 backdrop-blur hover:shadow-card transition-all hover:-translate-y-0.5"
+          data-tags="transferencias,corinthians">
+          <div
+            class="img-ph h-36 w-full grid place-items-center bg-center bg-cover bg-no-repeat bg-[url('../assets/imgs/ACD30119-CCA4-48D8-90D6-72BE3AB2CB46.png')]">
+          </div>
+          <div class="p-4">
+            <div class="text-xs text-slate-500 mb-1"><span class="font-semibold">Transferências</span> • 4h atrás</div>
+            <h4 class="font-semibold">Corinthians anuncia renovação com atacante Gabi Zanotti</h4>
+            <p class="text-sm text-slate-600 mt-1">Jogadora estende vínculo e fala sobre novos objetivos para a
+              temporada.</p>
+            <a class="mt-3 text-sm font-semibold text-brand-700 hover:underline" href="https://www.meutimao.com.br/noticias-do-corinthians/516274/gabi-zanotti-comenta-possivel-renovacao-com-o-corinthians-e-comemora-mais-um-titulo-ao-lado-da-fiel" target="_blank" rel="noopener noreferrer">Ler</a>
+          </div>
+        </article>
+
+        <article
+          class="news-card rounded-3xl overflow-hidden border border-purple-100 bg-white/80 backdrop-blur hover:shadow-card transition-all hover:-translate-y-0.5"
+          data-tags="copa,mundial,selecao">
+          <div
+            class="img-ph h-36 w-full grid place-items-center bg-center bg-cover bg-no-repeat bg-[url('../assets/imgs/88BCF8B9-B48A-46DC-9949-36D5FE08F757.png')]">
+          </div>
+          <div class="p-4">
+            <div class="text-xs text-slate-500 mb-1"><span class="font-semibold">Mundial</span> • 6h atrás</div>
+            <h4 class="font-semibold">Copa do Mundo de 2026 terá mais vagas para o futebol feminino</h4>
+            <p class="text-sm text-slate-600 mt-1">Mudança visa ampliar representatividade de seleções no torneio.</p>
+            <a class="mt-3 text-sm font-semibold text-brand-700 hover:underline" href="https://www.olympics.com/pt/noticias/copa-do-mundo-futebol-feminino-selecoes-2031" target="_blank">Ler</a>
+          </div>
+        </article>
+
+        <article
+          class="news-card rounded-3xl overflow-hidden border border-purple-100 bg-white/80 backdrop-blur hover:shadow-card transition-all hover:-translate-y-0.5"
+          data-tags="brasileirao,publico">
+          <div
+            class="img-ph h-36 w-full grid place-items-center bg-center bg-cover bg-no-repeat bg-[url('../assets/imgs/C6DA19BD-75CA-409F-A8B5-D46F6DA02F0B.png')]">
+          </div>
+          <div class="p-4">
+            <div class="text-xs text-slate-500 mb-1"><span class="font-semibold">Nacional</span> • 8h atrás</div>
+            <h4 class="font-semibold">Brasileirão Feminino bate recorde de público na temporada</h4>
+            <p class="text-sm text-slate-600 mt-1">Média de torcedores cresceu 35% em relação ao ano passado.</p>
+            <a class="mt-3 text-sm font-semibold text-brand-700 hover:underline" target="_blank" href="https://www.cnnbrasil.com.br/esportes/futebol/final-do-brasileirao-feminino-tem-maior-publico-de-futebol-do-fim-de-semana">Ler</a>
+          </div>
+        </article>
+
+        <article
+          class="news-card rounded-3xl overflow-hidden border border-purple-100 bg-white/80 backdrop-blur hover:shadow-card transition-all hover:-translate-y-0.5"
+          data-tags="marta,selecao">
+          <div
+            class="img-ph h-36 w-full grid place-items-center bg-center bg-cover bg-no-repeat bg-[url('../assets/imgs/B0C56CA1-4DE5-4939-83B8-759ADBE62614.png')]">
+          </div>
+          <div class="p-4">
+            <div class="text-xs text-slate-500 mb-1"><span class="font-semibold">Entrevista</span> • 10h atrás</div>
+            <h4 class="font-semibold">Marta comenta marca histórica e projeta novos desafios</h4>
+            <p class="text-sm text-slate-600 mt-1">Camisa 10 fala sobre legado e próximos passos na carreira.</p>
+            <a class="mt-3 text-sm font-semibold text-brand-700 hover:underline" href="https://www.olimpiadatododia.com.br/futebol/379355-marta-faz-golaco-e-se-torna-a-7a-maior-artilheira-da-historia" target="_blank">Ler</a>
+          </div>
+        </article>
+
+        <article
+          class="news-card rounded-3xl overflow-hidden border border-purple-100 bg-white/80 backdrop-blur hover:shadow-card transition-all hover:-translate-y-0.5"
+          data-tags="debinha,transferencias">
+          <div
+            class="img-ph h-36 w-full grid place-items-center bg-center bg-cover bg-no-repeat bg-[url('../assets/imgs/B10596F3-8E4A-4A41-B7AF-06A924369CC0.png')]">
+          </div>
+          <div class="p-4">
+            <div class="text-xs text-slate-500 mb-1"><span class="font-semibold">Mercado</span> • 12h atrás</div>
+            <h4 class="font-semibold">Debinha pode retornar ao Brasil na próxima janela</h4>
+            <p class="text-sm text-slate-600 mt-1">Clubes sondam atacante após grande temporada no exterior.</p>
+            <a class="mt-3 text-sm font-semibold text-brand-700 hover:underline" href="https://copaamerica.com/pt/noticias/marta-debinha-retornos-brasil-amistosos-japao-2025" target="_blank">Ler</a>
+          </div>
+        </article>
+
+        <article
+          class="news-card rounded-3xl overflow-hidden border border-purple-100 bg-white/80 backdrop-blur hover:shadow-card transition-all hover:-translate-y-0.5"
+          data-tags="corinthians,brasileirao">
+          <div
+            class="img-ph h-36 w-full grid place-items-center bg-center bg-cover bg-no-repeat bg-[url('../assets/imgs/D12506B8-BB62-46BE-9D47-7A92A482CB23.png')]">
+          </div>
+          <div class="p-4">
+            <div class="text-xs text-slate-500 mb-1"><span class="font-semibold">Análise</span> • 14h atrás</div>
+            <h4 class="font-semibold">Corinthians mantém 100% e lidera com folga</h4>
+            <p class="text-sm text-slate-600 mt-1">Time mostra equilíbrio entre defesa sólida e ataque eficiente.</p>
+            <a class="mt-3 text-sm font-semibold text-brand-700 hover:underline" href="https://www.meutimao.com.br/noticias-do-corinthians/510882/corinthians-mantem-ampla-vantagem-no-ranking-de-publico-pagante-do-brasileirao-feminino" target="_blank">Ler</a>
+          </div>
+        </article>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Modal de Logout -->
+  <div id="logoutModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+    <!-- Overlay -->
+    <div data-overlay class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm opacity-0 transition-opacity"></div>
+
+    <!-- Painel -->
+    <div id="logoutPanel" role="dialog" aria-modal="true" aria-labelledby="logoutTitle" aria-describedby="logoutDesc"
+      class="relative w-full max-w-md origin-center rounded-2xl bg-white p-6 shadow-xl ring-1 ring-slate-200 
+              opacity-0 translate-y-3 sm:translate-y-0 sm:scale-95 transition duration-150">
+      <div class="flex items-start gap-4">
+        <div class="shrink-0 rounded-full bg-brand-50 p-2 ring-8 ring-brand-50">
+          <!-- ícone -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-600" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+              d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6A2.25 2.25 0 005.25 5.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l3-3m0 0l3 3m-3-3v12" />
+          </svg>
+        </div>
+        <div class="flex-1">
+          <h2 id="logoutTitle" class="text-lg font-semibold text-slate-900">Sair da conta?</h2>
+          <p id="logoutDesc" class="mt-1 text-sm text-slate-600">
+            Você será desconectado e precisará entrar novamente.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-6 flex justify-end gap-3">
+        <button id="logoutCancel" class="px-4 py-2 rounded-xl ring-1 ring-slate-300 text-slate-700 hover:bg-slate-50">
+          Cancelar
+        </button>
+        <button id="logoutConfirm" class="px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700 focus:outline-none 
+                     focus:ring-2 focus:ring-brand-600 focus:ring-offset-2">
+          Sair
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- VLibras: botão e container -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+  <!-- Script do VLibras -->
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+  <!-- filtro por chips -->
+  <script src="../js/noticias.js"></script>
+  <script src="../js/menu-mobile.js"></script>
+  <script src="../js/logout.js"></script>
+  <script src="../js/token.js"></script>
+</body>
+
+</html>

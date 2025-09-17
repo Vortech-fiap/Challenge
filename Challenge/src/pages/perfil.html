@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Liga das Campeãs • Meu Perfil</title>
+
+  <!-- CSS extra -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/config.js"></script>
+
+</head>
+
+<body class="min-h-screen bg-gradient-to-b from-brand-50 via-white to-brand-50 text-slate-800 antialiased">
+
+  <!-- Topbar mobile -->
+  <header class="md:hidden sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+
+      <div class="flex items-center gap-2">
+        <div class="h-8 w-8 rounded-xl flex items-center justify-center text-white font-extrabold"><img
+            src="../assets/imgs/logo.png" alt=""></div>
+        <strong class="text-slate-900">Liga das Campeãs</strong>
+      </div>
+      <div class="w-8"></div>
+      <button id="btnMenu" class="p-2 hover:bg-slate-50" aria-label="Abrir menu">
+        ☰
+      </button>
+    </div>
+  </header>
+
+  <div class="max-w-[1400px] mx-auto md:grid md:grid-cols-[260px,1fr] gap-6 px-4 md:px-6 py-5">
+
+    <!-- Sidebar -->
+    <aside id="sidebar"
+      class="md:sticky md:top-4 md:self-start bg-white/80 backdrop-blur border border-slate-200 rounded-2xl p-4 md:p-5 shadow-sm hidden md:block">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="h-10 w-10 rounded-xl flex items-center justify-center text-white font-extrabold"><img
+            src="../assets/imgs/logo.png" alt=""></div>
+
+        <div>
+          <p class="text-slate-900 font-bold leading-tight">Liga das Campeãs</p>
+          <p class="text-xs text-slate-500 -mt-0.5">Futebol Feminino</p>
+        </div>
+      </div>
+
+      <nav class="space-y-1.5">
+        <a href="inicio.html" data-route="inicio"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-home-5-line text-lg shrink-0" aria-hidden="true"></i> <span>Início</span>
+        </a>
+
+        <a href="jogos.html" data-route="jogos"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-gamepad-line text-lg shrink-0" aria-hidden="true"></i> <span>Jogos</span>
+        </a>
+
+        <a href="noticias.html" data-route="noticias"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-newspaper-line text-lg shrink-0" aria-hidden="true"></i> <span>Notícias</span>
+          <span class="ml-auto text-[10px] px-2 py-0.5 rounded-full bg-brand-100 text-brand-700">3</span>
+        </a>
+
+        <a href="equipes.html" data-route="equipes"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-team-line text-lg shrink-0" aria-hidden="true"></i> <span>Equipes</span>
+        </a>
+
+        <a href="classificacao.html" data-route="classificacao"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-trophy-line text-lg shrink-0" aria-hidden="true"></i> <span>Classificação</span>
+        </a>
+
+        <a href="perfil.html" data-route="perfil"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-user-3-line text-lg shrink-0" aria-hidden="true"></i> <span>Meu Perfil</span>
+        </a>
+
+        <a href="peneiras.html" data-route="peneiras"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-clipboard-line text-lg shrink-0" aria-hidden="true"></i> <span>Peneiras</span>
+        </a>
+
+        <button id="btnLogout"
+          class="mt-6 w-full rounded-2xl bg-white border border-rose-300 text-rose-600 font-semibold px-4 py-2 hover:bg-rose-50 transition inline-flex items-center justify-center gap-2">
+          <i class="ri-logout-box-r-line text-lg" aria-hidden="true"></i> <span> Sair</span>
+        </button>
+      </nav>
+
+      <div class="mt-6 glass rounded-2xl p-4">
+        <p class="text-xs font-semibold text-brand-700 mb-1">🎯 Jogo Destaque</p>
+        <p class="text-sm font-medium">Brasil x Argentina</p>
+        <p class="text-xs text-slate-500">Hoje às 16:00</p>
+      </div>
+    </aside>
+
+    <!-- Conteúdo -->
+    <main class="space-y-6">
+
+      <!-- Título -->
+      <div class="flex items-start gap-3">
+        <span class="text-2xl">👤</span>
+        <div>
+          <h1 class="text-2xl md:text-3xl font-extrabold text-brand-800">Meu Perfil</h1>
+          <p class="text-sm text-slate-500">Gerencie suas informações, preferências e segurança</p>
+        </div>
+      </div>
+
+      <!-- Hero perfil -->
+      <section class="relative overflow-hidden rounded-3xl p-6 md:p-8 text-white shadow-card"
+        style="background:linear-gradient(110deg,#7c3aed 0%,#8b5cf6 35%,#22c55e 100%);">
+        <div
+          class="pointer-events-none absolute -top-8 -right-8 h-44 w-44 rounded-full bg-white/15 blur-2xl animate-float">
+        </div>
+        <div class="grid gap-6 md:grid-cols-[auto,1fr,auto] items-center">
+          <!-- avatar -->
+          <div class="flex items-center gap-4">
+            <div class="relative">
+              <img id="avatarImg" src="https://ui-avatars.com/api/?name=K+S&background=7c3aed&color=fff&bold=true"
+                class="h-20 w-20 md:h-24 md:w-24 rounded-2xl ring-4 ring-white/40 object-cover" alt="Avatar" />
+              <input id="avatarInput" type="file" accept="image/*" class="hidden">
+              <button id="btnAvatar"
+                class="absolute -bottom-2 -right-2 rounded-xl bg-white/90 text-slate-700 text-xs px-2 py-1 shadow hover:bg-white">Editar</button>
+            </div>
+            <div>
+              <h2 class="text-xl font-extrabold leading-tight">Kaio Santos</h2>
+              <p class="text-sm text-white/90">@kaio.dev • Brasil</p>
+            </div>
+          </div>
+
+          <!-- status badges -->
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-white/20 backdrop-blur">Pro • desde
+              2024</span>
+            <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-white/20 backdrop-blur">Times favoritos: COR,
+              BRA</span>
+          </div>
+
+          <!-- ações -->
+          <div class="flex gap-2 justify-self-end">
+            <button id="btnSalvarTopo"
+              class="rounded-2xl bg-white text-brand-700 px-4 py-2 text-sm font-semibold hover:bg-white/90 transition-all shadow hover:shadow-lg hover:-translate-y-0.5">Salvar</button>
+            <button
+              class="rounded-2xl border border-white/60 bg-transparent text-white px-4 py-2 text-sm font-semibold hover:bg-white/10 transition-all">Exportar
+              Dados</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Grid principal -->
+      <section class="grid gap-6 lg:grid-cols-3">
+
+        <!-- Coluna esquerda (2/3): Informações + Preferências -->
+        <div class="space-y-6 lg:col-span-2">
+
+          <!-- Informações pessoais -->
+          <form id="formInfo" class="glass rounded-3xl p-5 md:p-6 shadow-sm">
+            <h3 class="font-extrabold text-lg text-brand-700 mb-4">Informações Pessoais</h3>
+
+            <div class="grid gap-4 md:grid-cols-2">
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Nome</label>
+                <input name="nome" type="text"
+                  class="w-full rounded-xl border border-slate-200 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-300"
+                  placeholder="Seu nome completo">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Username</label>
+                <input name="user" type="text"
+                  class="w-full rounded-xl border border-slate-200 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-300"
+                  placeholder="@usuario">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+                <input name="email" type="email"
+                  class="w-full rounded-xl border border-slate-200 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-300"
+                  placeholder="voce@email.com">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Telefone</label>
+                <input name="fone" type="tel"
+                  class="w-full rounded-xl border border-slate-200 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-300"
+                  placeholder="(11) 99999-9999">
+              </div>
+              <div class="md:col-span-2">
+                <label class="block text-sm font-medium text-slate-700 mb-1">Cidade/Estado</label>
+                <input name="local" type="text"
+                  class="w-full rounded-xl border border-slate-200 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-300"
+                  placeholder="São Paulo - SP">
+              </div>
+              <div class="md:col-span-2">
+                <label class="block text-sm font-medium text-slate-700 mb-1">Bio</label>
+                <textarea name="bio" rows="3"
+                  class="w-full rounded-xl border border-slate-200 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-300"
+                  placeholder="Fale um pouco sobre você..."></textarea>
+              </div>
+            </div>
+
+            <div class="mt-4 flex items-center gap-3">
+              <button id="unlockCore" type="button"
+                class="rounded-2xl border border-slate-200 px-4 py-2 text-sm font-semibold transition-all shadow hover:shadow-lg hover:-translate-y-0.5">Editar
+                dados da conta</button>
+              <button type="submit"
+                class="rounded-2xl bg-brand-600 text-white px-4 py-2 text-sm font-semibold hover:bg-brand-700 transition-all shadow hover:shadow-lg hover:-translate-y-0.5">Salvar
+                Alterações</button>
+              <span id="infoSaved" class="hidden text-sm text-emerald-600">Alterações salvas ✅</span>
+            </div>
+          </form>
+
+          <!-- Preferências -->
+          <form id="formPrefs" class="glass rounded-3xl p-5 md:p-6 shadow-sm">
+            <h3 class="font-extrabold text-lg text-brand-700 mb-4">Preferências</h3>
+
+            <div class="grid gap-4 md:grid-cols-2">
+              <div class="space-y-2">
+                <label class="block text-sm font-medium text-slate-700">Notificações</label>
+                <label class="flex items-center gap-3 text-sm">
+                  <input type="checkbox" name="notif_email"
+                    class="rounded border-slate-300 text-brand-600 focus:ring-brand-500"> Email
+                </label>
+                <label class="flex items-center gap-3 text-sm">
+                  <input type="checkbox" name="notif_push"
+                    class="rounded border-slate-300 text-brand-600 focus:ring-brand-500"> Push
+                </label>
+                <label class="flex items-center gap-3 text-sm">
+                  <input type="checkbox" name="newsletter"
+                    class="rounded border-slate-300 text-brand-600 focus:ring-brand-500"> Newsletter semanal
+                </label>
+              </div>
+
+              <div class="space-y-2">
+                <label class="block text-sm font-medium text-slate-700">Tema</label>
+                <select name="tema"
+                  class="w-full rounded-xl border border-slate-200 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-300">
+                  <option value="claro">Claro</option>
+                  <option value="escuro">Escuro</option>
+                  <option value="sistema">Sistema</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <label class="block text-sm font-medium text-slate-700 mb-2">Times Favoritos</label>
+              <div id="chipsTimes" class="flex flex-wrap gap-2">
+                <button type="button" class="chip px-3 py-1.5 rounded-full text-sm bg-purple-100 text-purple-700"
+                  data-time="COR">#Corinthians</button>
+                <button type="button" class="chip px-3 py-1.5 rounded-full text-sm bg-purple-100 text-purple-700"
+                  data-time="PAL">#Palmeiras</button>
+                <button type="button" class="chip px-3 py-1.5 rounded-full text-sm bg-purple-100 text-purple-700"
+                  data-time="SAN">#Santos</button>
+                <button type="button" class="chip px-3 py-1.5 rounded-full text-sm bg-purple-100 text-purple-700"
+                  data-time="BRA">#SeleçãoBrasileira</button>
+              </div>
+            </div>
+
+            <div class="mt-4 flex items-center gap-3">
+              <button type="submit"
+                class="rounded-2xl bg-brand-600 text-white px-4 py-2 text-sm font-semibold hover:bg-brand-700 transition-all shadow hover:shadow-lg hover:-translate-y-0.5">Salvar
+                Preferências</button>
+              <span id="prefsSaved" class="hidden text-sm text-emerald-600">Preferências salvas ✅</span>
+            </div>
+          </form>
+        </div>
+
+        <!-- Coluna direita (1/3): Segurança & Contas -->
+        <div class="space-y-6">
+
+          <!-- Segurança -->
+          <form id="formSeg" class="glass rounded-3xl p-5 md:p-6 shadow-sm">
+            <h3 class="font-extrabold text-lg text-brand-700 mb-4">Segurança</h3>
+
+            <label class="block text-sm font-medium text-slate-700 mb-1">Senha Atual</label>
+            <input type="password" name="old"
+              class="w-full rounded-xl border border-slate-200 px-3 py-2 mb-3 focus:outline-none focus:ring-2 focus:ring-brand-300">
+
+            <div class="grid gap-3 md:grid-cols-2">
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Nova Senha</label>
+                <input type="password" name="new"
+                  class="w-full rounded-xl border border-slate-200 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-300">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Confirmar Nova</label>
+                <input type="password" name="confirm"
+                  class="w-full rounded-xl border border-slate-200 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-300">
+              </div>
+            </div>
+
+            <div class="mt-3 flex items-center gap-2 text-sm">
+              <input id="twofa" type="checkbox" class="rounded border-slate-300 text-brand-600 focus:ring-brand-500">
+              <label for="twofa">Ativar verificação em duas etapas (2FA)</label>
+            </div>
+
+            <div class="mt-4 flex items-center gap-3">
+              <button type="submit"
+                class="rounded-2xl bg-brand-600 text-white px-4 py-2 text-sm font-semibold hover:bg-brand-700 transition-all shadow hover:shadow-lg hover:-translate-y-0.5">Atualizar
+                Segurança</button>
+              <span id="segSaved" class="hidden text-sm text-emerald-600">Configurações salvas ✅</span>
+            </div>
+          </form>
+
+
+
+          <!-- Danger zone (ilustrativa) -->
+          <div class="rounded-3xl p-5 border border-rose-100 bg-rose-50/40">
+            <h4 class="font-bold text-rose-700 mb-2">Zona de Risco</h4>
+            <p class="text-sm text-rose-700/90">Excluir conta é irreversível.</p>
+            <button id="btnExcluir"
+              class="mt-3 rounded-2xl bg-rose-400 text-white px-4 py-2 text-sm font-semibold">Excluir
+              minha conta</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal de Logout -->
+  <div id="logoutModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+    <!-- Overlay -->
+    <div data-overlay class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm opacity-0 transition-opacity"></div>
+
+    <!-- Painel -->
+    <div id="logoutPanel" role="dialog" aria-modal="true" aria-labelledby="logoutTitle" aria-describedby="logoutDesc"
+      class="relative w-full max-w-md origin-center rounded-2xl bg-white p-6 shadow-xl ring-1 ring-slate-200 
+              opacity-0 translate-y-3 sm:translate-y-0 sm:scale-95 transition duration-150">
+      <div class="flex items-start gap-4">
+        <div class="shrink-0 rounded-full bg-brand-50 p-2 ring-8 ring-brand-50">
+          <!-- ícone -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-600" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+              d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6A2.25 2.25 0 005.25 5.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l3-3m0 0l3 3m-3-3v12" />
+          </svg>
+        </div>
+        <div class="flex-1">
+          <h2 id="logoutTitle" class="text-lg font-semibold text-slate-900">Sair da conta?</h2>
+          <p id="logoutDesc" class="mt-1 text-sm text-slate-600">
+            Você será desconectado e precisará entrar novamente.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-6 flex justify-end gap-3">
+        <button id="logoutCancel" class="px-4 py-2 rounded-xl ring-1 ring-slate-300 text-slate-700 hover:bg-slate-50">
+          Cancelar
+        </button>
+        <button id="logoutConfirm" class="px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700 focus:outline-none 
+                     focus:ring-2 focus:ring-brand-600 focus:ring-offset-2">
+          Sair
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast"
+    class="fixed bottom-4 left-1/2 -translate-x-1/2 hidden rounded-2xl bg-slate-900 text-white px-4 py-2 text-sm shadow-lg">
+    Salvo!</div>
+
+  <!-- VLibras: botão e container -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+  <!-- Script do VLibras -->
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+  <!-- JS: menu mobile, nav ativo, avatar preview, persistência local -->
+  <script src="../js/menu-mobile.js"></script>
+  <script src="../js/logout.js"></script>
+  <script src="../js/perfil.js"></script>
+  <script src="../js/token.js"></script>
+
+</body>
+
+</html>

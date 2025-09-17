@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Liga das Campeãs • Jogos</title>
+
+  <!-- CSS extra -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/config.js"></script>
+
+</head>
+
+<body class="min-h-screen bg-gradient-to-b from-brand-50 via-white to-brand-50 text-slate-800 antialiased">
+
+  <!-- Topbar mobile -->
+  <header class="md:hidden sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="h-8 w-8 rounded-xl flex items-center justify-center text-white font-extrabold">
+          <img src="../assets/imgs/logo.png" alt="">
+        </div>
+        <strong class="text-slate-900">Liga das Campeãs</strong>
+      </div>
+      <div class="w-8"></div>
+      <button id="btnMenu" class="p-2 hover:bg-slate-50" aria-label="Abrir menu">
+        ☰
+      </button>
+    </div>
+  </header>
+
+  <div class="max-w-[1400px] mx-auto md:grid md:grid-cols-[260px,1fr] gap-6 px-4 md:px-6 py-5">
+
+    <!-- Sidebar -->
+    <aside id="sidebar"
+      class="md:sticky md:top-4 md:self-start bg-white/80 backdrop-blur border border-slate-200 rounded-2xl p-4 md:p-5 shadow-sm hidden md:block">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="h-10 w-10 rounded-xl flex items-center justify-center text-white font-extrabold">
+          <img src="../assets/imgs/logo.png" alt="">
+        </div>
+
+        <div>
+          <p class="text-slate-900 font-bold leading-tight">Liga das Campeãs</p>
+          <p class="text-xs text-slate-500 -mt-0.5">Futebol Feminino</p>
+        </div>
+      </div>
+
+      <nav class="space-y-1.5">
+        <a href="inicio.html" data-route="inicio"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-home-5-line text-lg shrink-0" aria-hidden="true"></i> <span>Início</span>
+        </a>
+
+        <a href="jogos.html" data-route="jogos"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-gamepad-line text-lg shrink-0" aria-hidden="true"></i> <span>Jogos</span>
+        </a>
+
+        <a href="noticias.html" data-route="noticias"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-newspaper-line text-lg shrink-0" aria-hidden="true"></i> <span>Notícias</span>
+          <span class="ml-auto text-[10px] px-2 py-0.5 rounded-full bg-brand-100 text-brand-700">3</span>
+        </a>
+
+        <a href="equipes.html" data-route="equipes"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-team-line text-lg shrink-0" aria-hidden="true"></i> <span>Equipes</span>
+        </a>
+
+        <a href="classificacao.html" data-route="classificacao"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-trophy-line text-lg shrink-0" aria-hidden="true"></i> <span>Classificação</span>
+        </a>
+
+        <a href="perfil.html" data-route="perfil"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-user-3-line text-lg shrink-0" aria-hidden="true"></i> <span>Meu Perfil</span>
+        </a>
+
+        <a href="peneiras.html" data-route="peneiras"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-clipboard-line text-lg shrink-0" aria-hidden="true"></i> <span>Peneiras</span>
+        </a>
+
+        <button id="btnLogout"
+          class="mt-6 w-full rounded-2xl bg-white border border-rose-300 text-rose-600 font-semibold px-4 py-2 hover:bg-rose-50 transition inline-flex items-center justify-center gap-2">
+          <i class="ri-logout-box-r-line text-lg" aria-hidden="true"></i> <span> Sair</span>
+        </button>
+      </nav>
+
+      <div class="mt-6 glass rounded-2xl p-4">
+        <p class="text-xs font-semibold text-brand-700 mb-1">🎯 Jogo Destaque</p>
+        <p class="text-sm font-medium">Brasil x Argentina</p>
+        <p class="text-xs text-slate-500">Hoje às 16:00</p>
+      </div>
+    </aside>
+
+    <!-- Conteúdo -->
+    <main class="space-y-6">
+
+      <!-- Título + ações -->
+      <div class="flex flex-wrap items-center gap-3 justify-between">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">⚽</span>
+          <div>
+            <h1 class="text-2xl md:text-3xl font-extrabold text-brand-800">Jogos</h1>
+            <p class="text-sm text-slate-500">Acompanhe todos os jogos do futebol feminino</p>
+          </div>
+        </div>
+
+        <button
+          class="w-full sm:w-auto inline-flex items-center gap-2 rounded-2xl border border-slate-200 px-4 py-2 text-sm font-semibold hover:bg-slate-50 transition-all hover:-translate-y-0.5">
+          <span>🗓️</span> Calendário Completo
+        </button>
+      </div>
+
+      <!-- Tabs filtro -->
+      <div id="tabs"
+        class="grid grid-cols-1 sm:grid-cols-3 text-center rounded-2xl border border-brand-100 overflow-hidden">
+        <button data-tab="hoje"
+          class="tab-btn w-full px-4 py-2 text-sm font-semibold bg-white text-brand-700">Hoje</button>
+        <button data-tab="amanha"
+          class="tab-btn w-full px-4 py-2 text-sm font-medium text-slate-600 hover:bg-brand-50">Amanhã</button>
+        <button data-tab="resultados"
+          class="tab-btn w-full px-4 py-2 text-sm font-medium text-slate-600 hover:bg-brand-50">Resultados</button>
+      </div>
+
+      <!-- Lista de jogos -->
+      <section class="space-y-5">
+
+        <!-- Jogo 1 (agendado para hoje) -->
+        <article data-game data-day="hoje" data-status="agendado"
+          class="group rounded-3xl border border-brand-100 bg-white/80 backdrop-blur p-4 sm:p-5 shadow-sm hover:shadow-card transition-all hover:-translate-y-0.5">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700">Brasileirão
+              Feminino</span>
+            <div class="flex items-center gap-1 text-xs text-slate-500"><span>🕒</span><span>15:00</span></div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 items-center gap-4">
+            <!-- time A -->
+            <div class="flex items-center gap-4 justify-center sm:justify-start text-center sm:text-left">
+              <!-- 👇 escudo dinâmico -->
+              <img data-crest data-team="Palmeiras" class="h-12 w-12 object-contain bg-white p-1"
+                alt="Escudo Palmeiras" />
+              <div>
+                <p class="text-sm font-semibold">Palmeiras</p>
+                <p class="text-xs text-slate-500 flex items-center gap-1 justify-center sm:justify-start">
+                  📍 Allianz Parque
+                </p>
+              </div>
+            </div>
+
+            <!-- centro -->
+            <div class="text-center">
+              <span
+                class="inline-block rounded-full bg-gradient-to-r from-brand-100 to-emerald-100 text-brand-700 px-3 py-1 text-xs font-semibold">VS</span>
+            </div>
+
+            <!-- time B -->
+            <div class="flex items-center gap-4 justify-center sm:justify-end text-center sm:text-right">
+              <div class="text-right">
+                <p class="text-sm font-semibold">São Paulo</p>
+              </div>
+              <!-- 👇 escudo dinâmico -->
+              <img data-crest data-team="São Paulo" class="h-12 w-12 object-contain bg-white p-1"
+                alt="Escudo São Paulo" />
+            </div>
+          </div>
+
+          <div class="mt-4 flex justify-end">
+            <button
+              class="w-full sm:w-auto rounded-xl bg-white border border-slate-200 px-4 py-2 text-sm font-semibold hover:bg-slate-50 transition-all">Lembrete</button>
+          </div>
+        </article>
+
+        <!-- Jogo 2 (AO VIVO hoje) -->
+        <article data-game data-day="hoje" data-status="ao-vivo"
+          class="relative overflow-hidden group rounded-3xl border border-purple-100 bg-white/80 backdrop-blur p-4 sm:p-5 shadow-sm hover:shadow-card transition-all hover:-translate-y-0.5">
+          <div class="pointer-events-none absolute inset-0 opacity-60">
+            <div
+              class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-40 w-40 rounded-full bg-brand-100 blur-3xl animate-pulseSoft">
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-2 relative">
+            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-rose-100 text-rose-700">AO VIVO</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 items-center gap-4 relative">
+            <!-- Flamengo -->
+            <div class="flex items-center gap-4 justify-center sm:justify-start text-center sm:text-left">
+              <img data-crest data-team="Flamengo" class="h-12 w-12 object-contain bg-white p-1"
+                alt="Escudo Flamengo" />
+              <div>
+                <p class="text-sm font-semibold">Flamengo</p>
+                <p class="text-xs text-slate-500 flex items-center gap-1 justify-center sm:justify-start">📍 Maracanã
+                </p>
+              </div>
+            </div>
+
+            <!-- Placar -->
+            <div class="text-center">
+              <div class="text-2xl sm:text-3xl font-black text-rose-500 select-none">3 – 2</div>
+              <div class="text-[11px] text-rose-500 font-semibold -mt-1">87’</div>
+            </div>
+
+            <!-- Corinthians -->
+            <div class="flex items-center gap-4 justify-center sm:justify-end text-center sm:text-right">
+              <div class="text-right">
+                <p class="text-sm font-semibold">Corinthians</p>
+              </div>
+              <img data-crest data-team="Corinthians" class="h-12 w-12 object-contain bg-white p-1 "
+                alt="Escudo Corinthians" />
+            </div>
+          </div>
+
+          <div class="mt-4 flex justify-end relative">
+            <button
+              class="w-full sm:w-auto rounded-2xl bg-brand-600 text-white px-4 py-2 text-sm font-semibold hover:bg-brand-700 transition-all shadow hover:shadow-lg hover:-translate-y-0.5">Assistir</button>
+          </div>
+        </article>
+
+        <!-- Jogo em Destaque (card grande) -->
+        <article
+          class="rounded-3xl p-5 sm:p-6 text-brand-900 shadow-card hover:shadow-xl transition-all hover:-translate-y-0.5"
+          style="background:linear-gradient(120deg,#f3e8ff 0%,#ede9fe 40%,#e9fdf5 100%)">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-lg">📣🔥</span>
+            <h3 class="text-lg font-extrabold text-brand-700">Jogo em Destaque</h3>
+          </div>
+
+          <div class="grid gap-4 md:grid-cols-[1fr,auto] items-center">
+            <div>
+              <p class="font-semibold">Brasil vs Argentina</p>
+              <p class="text-sm text-slate-600">Final da Copa América Feminina</p>
+              <p class="text-sm text-slate-600">Domingo, 20:00 • Estádio Nacional</p>
+            </div>
+            <button
+              class="w-full md:w-auto justify-self-stretch md:justify-self-end rounded-2xl bg-gradient-to-r from-brand-600 to-brand-500 text-white px-5 py-2 font-semibold hover:from-brand-700 hover:to-brand-600 transition-all shadow hover:shadow-lg hover:-translate-y-0.5">
+              Assistir ao Vivo
+            </button>
+          </div>
+        </article>
+
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal de Logout -->
+  <div id="logoutModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+    <!-- Overlay -->
+    <div data-overlay class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm opacity-0 transition-opacity"></div>
+
+    <!-- Painel -->
+    <div id="logoutPanel" role="dialog" aria-modal="true" aria-labelledby="logoutTitle" aria-describedby="logoutDesc"
+      class="relative w-full max-w-md origin-center rounded-2xl bg-white p-6 shadow-xl ring-1 ring-slate-200 
+             opacity-0 translate-y-3 sm:translate-y-0 sm:scale-95 transition duration-150">
+      <div class="flex items-start gap-4">
+        <div class="shrink-0 rounded-full bg-brand-50 p-2 ring-8 ring-brand-50">
+          <!-- ícone -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-600" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+              d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6A2.25 2.25 0 005.25 5.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l3-3m0 0l3 3m-3-3v12" />
+          </svg>
+        </div>
+        <div class="flex-1">
+          <h2 id="logoutTitle" class="text-lg font-semibold text-slate-900">Sair da conta?</h2>
+          <p id="logoutDesc" class="mt-1 text-sm text-slate-600">
+            Você será desconectado e precisará entrar novamente.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-6 flex justify-end gap-3">
+        <button id="logoutCancel" class="px-4 py-2 rounded-xl ring-1 ring-slate-300 text-slate-700 hover:bg-slate-50">
+          Cancelar
+        </button>
+        <button id="logoutConfirm" class="px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700 focus:outline-none 
+                 focus:ring-2 focus:ring-brand-600 focus:ring-offset-2">
+          Sair
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- VLibras: botão e container -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+  <!-- Script do VLibras -->
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+  <!-- JS: menu mobile, nav ativo, tabs -->
+  <script src="../js/jogos.js"></script>
+  <script src="../js/menu-mobile.js"></script>
+  <script src="../js/logout.js"></script>
+  <script src="../js/token.js"></script>
+  <script src="../js/escudos.js"></script>
+</body>
+
+</html>

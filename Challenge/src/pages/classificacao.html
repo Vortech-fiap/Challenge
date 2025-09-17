@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Liga das Campeãs • Classificação</title>
+
+  <!-- CSS extra -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/config.js"></script>
+
+</head>
+
+<body class="min-h-screen bg-gradient-to-b from-brand-50 via-white to-brand-50 text-slate-800 antialiased">
+
+  <!-- Topbar mobile -->
+  <header class="md:hidden sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="h-8 w-8 rounded-xl flex items-center justify-center text-white font-extrabold">
+          <img src="../assets/imgs/logo.png" alt="">
+        </div>
+        <strong class="text-slate-900">Liga das Campeãs</strong>
+      </div>
+      <div class="w-8"></div>
+      <button id="btnMenu" class="p-2 hover:bg-slate-50" aria-label="Abrir menu">☰</button>
+    </div>
+  </header>
+
+  <div class="max-w-[1400px] mx-auto md:grid md:grid-cols-[260px,1fr] gap-6 px-4 md:px-6 py-5">
+
+    <!-- Sidebar -->
+    <aside id="sidebar"
+      class="md:sticky md:top-4 md:self-start bg-white/80 backdrop-blur border border-slate-200 rounded-2xl p-4 md:p-5 shadow-sm hidden md:block">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="h-10 w-10 rounded-xl flex items-center justify-center text-white font-extrabold">
+          <img src="../assets/imgs/logo.png" alt="">
+        </div>
+        <div>
+          <p class="text-slate-900 font-bold leading-tight">Liga das Campeãs</p>
+          <p class="text-xs text-slate-500 -mt-0.5">Futebol Feminino</p>
+        </div>
+      </div>
+
+      <nav class="space-y-1.5">
+        <a href="inicio.html" data-route="inicio"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-home-5-line text-lg shrink-0" aria-hidden="true"></i> <span>Início</span>
+        </a>
+
+        <a href="jogos.html" data-route="jogos"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-gamepad-line text-lg shrink-0" aria-hidden="true"></i> <span>Jogos</span>
+        </a>
+
+        <a href="noticias.html" data-route="noticias"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-newspaper-line text-lg shrink-0" aria-hidden="true"></i> <span>Notícias</span>
+          <span class="ml-auto text-[10px] px-2 py-0.5 rounded-full bg-brand-100 text-brand-700">3</span>
+        </a>
+
+        <a href="equipes.html" data-route="equipes"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-team-line text-lg shrink-0" aria-hidden="true"></i> <span>Equipes</span>
+        </a>
+
+        <a href="classificacao.html" data-route="classificacao"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-trophy-line text-lg shrink-0" aria-hidden="true"></i> <span>Classificação</span>
+        </a>
+
+        <a href="perfil.html" data-route="perfil"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-user-3-line text-lg shrink-0" aria-hidden="true"></i> <span>Meu Perfil</span>
+        </a>
+
+        <a href="peneiras.html" data-route="peneiras"
+          class="nav-link flex items-center gap-3 px-3 py-2 text-sm text-slate-700">
+          <i class="ri-clipboard-line text-lg shrink-0" aria-hidden="true"></i> <span>Peneiras</span>
+        </a>
+
+        <button id="btnLogout"
+          class="mt-6 w-full rounded-2xl bg-white border border-rose-300 text-rose-600 font-semibold px-4 py-2 hover:bg-rose-50 transition inline-flex items-center justify-center gap-2">
+          <i class="ri-logout-box-r-line text-lg" aria-hidden="true"></i> <span> Sair</span>
+        </button>
+      </nav>
+
+      <div class="mt-6 glass rounded-2xl p-4">
+        <p class="text-xs font-semibold text-brand-700 mb-1">🎯 Jogo Destaque</p>
+        <p class="text-sm font-medium">Brasil x Argentina</p>
+        <p class="text-xs text-slate-500">Hoje às 16:00</p>
+      </div>
+    </aside>
+
+    <!-- Conteúdo -->
+    <main class="space-y-6">
+
+      <!-- Título -->
+      <div class="flex items-start gap-3">
+        <span class="text-2xl">📊</span>
+        <div>
+          <h1 class="text-2xl md:text-3xl font-extrabold text-brand-800">Classificação</h1>
+          <p class="text-sm text-slate-500">Acompanhe as tabelas dos principais campeonatos</p>
+        </div>
+      </div>
+
+      <!-- Indicadores -->
+      <section class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="glass rounded-2xl p-5 text-center shadow-sm hover:shadow-card transition-all">
+          <div class="text-2xl">⚽</div>
+          <p class="text-xs uppercase tracking-wide text-slate-500">Gols Marcados</p>
+          <div class="text-2xl sm:text-3xl font-extrabold text-brand-700 mt-1 counter" data-value="187">0</div>
+        </div>
+        <div class="glass rounded-2xl p-5 text-center shadow-sm hover:shadow-card transition-all">
+          <div class="text-2xl">🧮</div>
+          <p class="text-xs uppercase tracking-wide text-slate-500">Média/Jogo</p>
+          <div class="text-2xl sm:text-3xl font-extrabold text-emerald-600 mt-1 counter" data-value="3.2"
+            data-decimals="1">0</div>
+        </div>
+        <div class="glass rounded-2xl p-5 text-center shadow-sm hover:shadow-card transition-all">
+          <div class="text-2xl">👑</div>
+          <p class="text-xs uppercase tracking-wide text-slate-500">Vitórias Seguidas</p>
+          <div class="text-2xl sm:text-3xl font-extrabold text-brand-700 mt-1 counter" data-value="5">0</div>
+        </div>
+        <div class="glass rounded-2xl p-5 text-center shadow-sm hover:shadow-card transition-all">
+          <div class="text-2xl">📈</div>
+          <p class="text-xs uppercase tracking-wide text-slate-500">Aproveitamento</p>
+          <div class="text-2xl sm:text-3xl font-extrabold text-emerald-600 mt-1 counter" data-value="68"
+            data-suffix="%">0</div>
+        </div>
+      </section>
+
+      <!-- Tabs -->
+      <div id="tabs"
+        class="grid grid-cols-1 sm:grid-cols-3 text-center rounded-2xl border border-brand-100 overflow-hidden">
+        <button data-tab="brasileirao"
+          class="tab-btn w-full px-4 py-2 text-sm font-semibold bg-white text-brand-700">Brasileirão</button>
+        <button data-tab="libertadores"
+          class="tab-btn w-full px-4 py-2 text-sm font-medium text-slate-600 hover:bg-brand-50">Libertadores</button>
+        <button data-tab="ranking"
+          class="tab-btn w-full px-4 py-2 text-sm font-medium text-slate-600 hover:bg-brand-50">Ranking FIFA</button>
+      </div>
+
+      <!-- Tabela: Brasileirão -->
+      <section id="tbl-brasileirao"
+        class="rounded-3xl border border-brand-100 bg-white/80 backdrop-blur p-4 sm:p-5 space-y-3">
+        <h2 class="text-lg md:text-xl font-extrabold text-brand-700 flex items-center gap-2">
+          <i class="ri-trophy-line text-lg shrink-0" aria-hidden="true"></i> Brasileirão Feminino 2024
+        </h2>
+
+        <!-- linhas -->
+        <div class="space-y-3">
+
+          <!-- ROW COMPONENT (use o mesmo padrão nas demais linhas) -->
+          <!-- Linha 1 -->
+          <div class="row-hover rounded-2xl border border-purple-100 p-3 sm:p-4 grid gap-3
+                      grid-cols-1 md:[grid-template-columns:42px_1fr_auto]">
+            <!-- rank + mobile inline com time -->
+            <div class="flex items-center gap-3 md:block">
+              <div
+                class="h-8 w-8 rounded-full grid place-items-center bg-emerald-100 text-emerald-700 font-bold shrink-0">
+                1</div>
+            </div>
+
+            <!-- time -->
+            <div class="min-w-0">
+              <div class="flex items-center gap-2">
+                <span class="text-brand-800 font-extrabold truncate">Flamengo</span>
+                <span class="text-xs px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700">👑</span>
+                <div class="ml-1 flex gap-1">
+                  <span class="form-badge bg-emerald-100 text-emerald-700" title="Vitória">V</span>
+                  <span class="form-badge bg-emerald-100 text-emerald-700">V</span>
+                  <span class="form-badge bg-emerald-100 text-emerald-700">V</span>
+                  <span class="form-badge bg-emerald-100 text-emerald-700">V</span>
+                  <span class="form-badge bg-emerald-100 text-emerald-700">V</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- métricas -->
+            <div class="text-right text-[11px] sm:text-sm text-slate-600 md:order-none order-last">
+              <div class="grid grid-cols-5 gap-2 sm:gap-3 items-baseline">
+                <div><span class="font-bold text-slate-900">5</span>
+                  <div class="text-[10px]">J</div>
+                </div>
+                <div><span class="font-bold text-slate-900">5</span>
+                  <div class="text-[10px]">V</div>
+                </div>
+                <div><span class="font-bold text-slate-900">0</span>
+                  <div class="text-[10px]">E</div>
+                </div>
+                <div><span class="font-bold text-slate-900">0</span>
+                  <div class="text-[10px]">D</div>
+                </div>
+                <div>
+                  <div class="text-[11px] sm:text-xs"><span class="font-semibold">15:2</span> <span
+                      class="text-slate-500">Gols</span></div>
+                  <div class="text-[11px] sm:text-xs"><span class="font-semibold text-emerald-600">+13</span> <span
+                      class="text-slate-500">SG</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- pontos -->
+            <div class="md:justify-self-end">
+              <span
+                class="inline-flex items-center rounded-full bg-brand-600 text-white text-xs font-bold px-3 py-1.5">15
+                pts</span>
+            </div>
+          </div>
+
+          <!-- Linha 2 -->
+          <div class="row-hover rounded-2xl border border-purple-100 p-3 sm:p-4 grid gap-3
+                      grid-cols-1 md:[grid-template-columns:42px_1fr_auto]">
+            <div class="flex items-center gap-3 md:block">
+              <div class="h-8 w-8 rounded-full grid place-items-center bg-emerald-50 text-slate-700 font-bold">2</div>
+            </div>
+
+            <div class="min-w-0">
+              <div class="flex items-center gap-2">
+                <span class="font-extrabold text-slate-800 truncate">Palmeiras</span>
+                <div class="ml-1 flex gap-1">
+                  <span class="form-badge bg-emerald-100 text-emerald-700">V</span>
+                  <span class="form-badge bg-emerald-100 text-emerald-700">V</span>
+                  <span class="form-badge bg-amber-100 text-amber-700" title="Empate">E</span>
+                  <span class="form-badge bg-emerald-100 text-emerald-700">V</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="text-right text-[11px] sm:text-sm text-slate-600">
+              <div class="grid grid-cols-5 gap-2 sm:gap-3 items-baseline">
+                <div><span class="font-bold text-slate-900">4</span>
+                  <div class="text-[10px]">J</div>
+                </div>
+                <div><span class="font-bold text-slate-900">3</span>
+                  <div class="text-[10px]">V</div>
+                </div>
+                <div><span class="font-bold text-slate-900">1</span>
+                  <div class="text-[10px]">E</div>
+                </div>
+                <div><span class="font-bold text-slate-900">0</span>
+                  <div class="text-[10px]">D</div>
+                </div>
+                <div>
+                  <div class="text-[11px] sm:text-xs"><span class="font-semibold">12:3</span> <span
+                      class="text-slate-500">Gols</span></div>
+                  <div class="text-[11px] sm:text-xs"><span class="font-semibold text-emerald-600">+9</span> <span
+                      class="text-slate-500">SG</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="md:justify-self-end">
+              <span
+                class="inline-flex items-center rounded-full bg-brand-600 text-white text-xs font-bold px-3 py-1.5">13
+                pts</span>
+            </div>
+          </div>
+
+          <!-- Linha 3 -->
+          <div class="row-hover rounded-2xl border border-purple-100 p-3 sm:p-4 grid gap-3
+                      grid-cols-1 md:[grid-template-columns:42px_1fr_auto]">
+            <div class="flex items-center gap-3 md:block">
+              <div class="h-8 w-8 rounded-full grid place-items-center bg-slate-100 text-slate-700 font-bold">3</div>
+            </div>
+
+            <div class="min-w-0">
+              <div class="flex items-center gap-2">
+                <span class="font-extrabold text-slate-800 truncate">Corinthians</span>
+                <div class="ml-1 flex gap-1">
+                  <span class="form-badge bg-emerald-100 text-emerald-700">V</span>
+                  <span class="form-badge bg-rose-100 text-rose-700" title="Derrota">D</span>
+                  <span class="form-badge bg-rose-100 text-rose-700">D</span>
+                  <span class="form-badge bg-emerald-100 text-emerald-700">V</span>
+                  <span class="form-badge bg-emerald-100 text-emerald-700">V</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="text-right text-[11px] sm:text-sm text-slate-600">
+              <div class="grid grid-cols-5 gap-2 sm:gap-3 items-baseline">
+                <div><span class="font-bold text-slate-900">5</span>
+                  <div class="text-[10px]">J</div>
+                </div>
+                <div><span class="font-bold text-slate-900">3</span>
+                  <div class="text-[10px]">V</div>
+                </div>
+                <div><span class="font-bold text-slate-900">0</span>
+                  <div class="text-[10px]">E</div>
+                </div>
+                <div><span class="font-bold text-slate-900">2</span>
+                  <div class="text-[10px]">D</div>
+                </div>
+                <div>
+                  <div class="text-[11px] sm:text-xs"><span class="font-semibold">10:5</span> <span
+                      class="text-slate-500">Gols</span></div>
+                  <div class="text-[11px] sm:text-xs"><span class="font-semibold text-emerald-600">+5</span> <span
+                      class="text-slate-500">SG</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="md:justify-self-end">
+              <span
+                class="inline-flex items-center rounded-full bg-brand-600 text-white text-xs font-bold px-3 py-1.5">12
+                pts</span>
+            </div>
+          </div>
+
+          <!-- Linha 4 -->
+          <div class="row-hover rounded-2xl border border-purple-100 p-3 sm:p-4 grid gap-3
+                      grid-cols-1 md:[grid-template-columns:42px_1fr_auto]">
+            <div class="flex items-center gap-3 md:block">
+              <div class="h-8 w-8 rounded-full grid place-items-center bg-slate-100 text-slate-700 font-bold">4</div>
+            </div>
+
+            <div class="min-w-0">
+              <div class="flex items-center gap-2">
+                <span class="font-extrabold text-slate-800 truncate">Santos</span>
+                <div class="ml-1 flex gap-1">
+                  <span class="form-badge bg-amber-100 text-amber-700">E</span>
+                  <span class="form-badge bg-emerald-100 text-emerald-700">V</span>
+                  <span class="form-badge bg-emerald-100 text-emerald-700">V</span>
+                  <span class="form-badge bg-rose-100 text-rose-700">D</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="text-right text-[11px] sm:text-sm text-slate-600">
+              <div class="grid grid-cols-5 gap-2 sm:gap-3 items-baseline">
+                <div><span class="font-bold text-slate-900">4</span>
+                  <div class="text-[10px]">J</div>
+                </div>
+                <div><span class="font-bold text-slate-900">2</span>
+                  <div class="text-[10px]">V</div>
+                </div>
+                <div><span class="font-bold text-slate-900">1</span>
+                  <div class="text-[10px]">E</div>
+                </div>
+                <div><span class="font-bold text-slate-900">1</span>
+                  <div class="text-[10px]">D</div>
+                </div>
+                <div>
+                  <div class="text-[11px] sm:text-xs"><span class="font-semibold">8:6</span> <span
+                      class="text-slate-500">Gols</span></div>
+                  <div class="text-[11px] sm:text-xs"><span class="font-semibold text-emerald-600">+2</span> <span
+                      class="text-slate-500">SG</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="md:justify-self-end">
+              <span
+                class="inline-flex items-center rounded-full bg-brand-600 text-white text-xs font-bold px-3 py-1.5">10
+                pts</span>
+            </div>
+          </div>
+
+          <!-- Linha 5 -->
+          <div class="row-hover rounded-2xl border border-purple-100 p-3 sm:p-4 grid gap-3
+                      grid-cols-1 md:[grid-template-columns:42px_1fr_auto]">
+            <div class="flex items-center gap-3 md:block">
+              <div class="h-8 w-8 rounded-full grid place-items-center bg-slate-100 text-slate-700 font-bold">5</div>
+            </div>
+
+            <div class="min-w-0">
+              <div class="flex items-center gap-2">
+                <span class="font-extrabold text-slate-800 truncate">São Paulo</span>
+                <div class="ml-1 flex gap-1">
+                  <span class="form-badge bg-emerald-100 text-emerald-700">V</span>
+                  <span class="form-badge bg-amber-100 text-amber-700">E</span>
+                  <span class="form-badge bg-amber-100 text-amber-700">E</span>
+                  <span class="form-badge bg-rose-100 text-rose-700">D</span>
+                  <span class="form-badge bg-emerald-100 text-emerald-700">V</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="text-right text-[11px] sm:text-sm text-slate-600">
+              <div class="grid grid-cols-5 gap-2 sm:gap-3 items-baseline">
+                <div><span class="font-bold text-slate-900">5</span>
+                  <div class="text-[10px]">J</div>
+                </div>
+                <div><span class="font-bold text-slate-900">2</span>
+                  <div class="text-[10px]">V</div>
+                </div>
+                <div><span class="font-bold text-slate-900">2</span>
+                  <div class="text-[10px]">E</div>
+                </div>
+                <div><span class="font-bold text-slate-900">1</span>
+                  <div class="text-[10px]">D</div>
+                </div>
+                <div>
+                  <div class="text-[11px] sm:text-xs"><span class="font-semibold">7:6</span> <span
+                      class="text-slate-500">Gols</span></div>
+                  <div class="text-[11px] sm:text-xs"><span class="font-semibold text-emerald-600">+1</span> <span
+                      class="text-slate-500">SG</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="md:justify-self-end">
+              <span
+                class="inline-flex items-center rounded-full bg-brand-600 text-white text-xs font-bold px-3 py-1.5">8
+                pts</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- legenda -->
+        <div
+          class="mt-5 rounded-2xl border border-dashed border-brand-100 p-3 text-xs text-slate-600 flex flex-wrap gap-x-6 gap-y-2">
+          <span class="inline-flex items-center gap-2"><span
+              class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span>Classificação direta</span>
+          <span class="inline-flex items-center gap-2"><span
+              class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>Pré-eliminatórias</span>
+          <span class="inline-flex items-center gap-2"><span
+              class="h-2.5 w-2.5 rounded-full bg-rose-500"></span>Rebaixamento</span>
+          <span class="inline-flex items-center gap-2 text-slate-500">J: Jogos</span>
+          <span class="inline-flex items-center gap-2 text-slate-500">V: Vitórias</span>
+          <span class="inline-flex items-center gap-2 text-slate-500">E: Empates</span>
+          <span class="inline-flex items-center gap-2 text-slate-500">D: Derrotas</span>
+          <span class="inline-flex items-center gap-2 text-slate-500">SG: Saldo de Gols</span>
+        </div>
+      </section>
+
+      <!-- Libertadores (placeholder) -->
+      <section id="tbl-libertadores" class="rounded-3xl border border-brand-100 bg-white/80 backdrop-blur p-5 hidden">
+        <h2 class="text-lg md:text-xl font-extrabold text-brand-700">🏆 Libertadores Feminina</h2>
+        <p class="text-sm text-slate-600 mt-2">Tabela em construção. Use esta seção para listar grupos, chaves e fases
+          eliminatórias.</p>
+      </section>
+
+      <!-- Ranking FIFA (placeholder) -->
+      <section id="tbl-ranking" class="rounded-3xl border border-brand-100 bg-white/80 backdrop-blur p-5 hidden">
+        <h2 class="text-lg md:text-xl font-extrabold text-brand-700">🌍 Ranking FIFA Seleções</h2>
+        <ol class="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3 list-decimal pl-5">
+          <li>Estados Unidos</li>
+          <li>Alemanha</li>
+          <li>Suécia</li>
+          <li>Inglaterra</li>
+          <li>Brasil</li>
+        </ol>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Modal de Logout -->
+  <div id="logoutModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+    <div data-overlay class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm opacity-0 transition-opacity"></div>
+    <div id="logoutPanel" role="dialog" aria-modal="true" aria-labelledby="logoutTitle" aria-describedby="logoutDesc"
+      class="relative w-full max-w-md origin-center rounded-2xl bg-white p-6 shadow-xl ring-1 ring-slate-200 opacity-0 translate-y-3 sm:translate-y-0 sm:scale-95 transition duration-150">
+      <div class="flex items-start gap-4">
+        <div class="shrink-0 rounded-full bg-brand-50 p-2 ring-8 ring-brand-50">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-600" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+              d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6A2.25 2.25 0 005.25 5.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l3-3m0 0l3 3m-3-3v12" />
+          </svg>
+        </div>
+        <div class="flex-1">
+          <h2 id="logoutTitle" class="text-lg font-semibold text-slate-900">Sair da conta?</h2>
+          <p id="logoutDesc" class="mt-1 text-sm text-slate-600">Você será desconectado e precisará entrar novamente.
+          </p>
+        </div>
+      </div>
+      <div class="mt-6 flex justify-end gap-3">
+        <button id="logoutCancel"
+          class="px-4 py-2 rounded-xl ring-1 ring-slate-300 text-slate-700 hover:bg-slate-50">Cancelar</button>
+        <button id="logoutConfirm"
+          class="px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:ring-offset-2">Sair</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- VLibras: botão e container -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+  <!-- Script do VLibras -->
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+  <script src="../js/classificacao.js"></script>
+  <script src="../js/menu-mobile.js"></script>
+  <script src="../js/logout.js"></script>
+  <script src="../js/token.js"></script>
+</body>
+
+</html>
