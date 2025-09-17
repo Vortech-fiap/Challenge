@@ -7,7 +7,9 @@ Stack: HTML • CSS • JavaScript • Tailwind CSS • Consumo de API (fetch) �
 ## Equipe 
 
 > Luara Ramos - rm565573
+ 
 > Jean Feltran - rm566534
+
 > Kaio Galvão - rm566536
 
 ## 🔥 Visão geral
